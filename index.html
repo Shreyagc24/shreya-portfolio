@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shreya Garg — Developer & Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0f;--bg2:#111118;--bg3:#18181f;
+  --accent:#6ee7b7;--accent2:#818cf8;--accent3:#f472b6;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#475569;
+  --border:rgba(255,255,255,0.07);--card:rgba(255,255,255,0.04);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;}
+body::after{content:"";position:fixed;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 5rem;background:rgba(10,10,15,0.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:1.5rem;color:var(--accent);text-decoration:none;letter-spacing:0.01em;}
+.nav-links{display:flex;gap:2.2rem;list-style:none;}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--accent);}
+.nav-cta{padding:0.45rem 1.1rem;border:1px solid var(--accent);border-radius:6px;color:var(--accent)!important;transition:background 0.2s!important;}
+.nav-cta:hover{background:rgba(110,231,183,0.1)!important;}
+section{position:relative;z-index:1;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:8rem 5rem 5rem;max-width:1100px;margin:0 auto;}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(110,231,183,0.08);border:1px solid rgba(110,231,183,0.2);border-radius:100px;padding:0.35rem 1.1rem;font-size:0.74rem;color:var(--accent);font-family:"DM Mono",monospace;margin-bottom:2.2rem;animation:fadeUp 0.5s ease both;}
+.badge-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.25}}
+.hero-name{font-family:"Cormorant Garamond",serif;font-size:clamp(4rem,8vw,7rem);font-weight:600;line-height:0.95;letter-spacing:-0.02em;color:var(--text);animation:fadeUp 0.5s 0.08s ease both;margin-bottom:0.5rem;}
+.hero-name em{color:var(--accent);font-style:italic;}
+.hero-role{font-family:"Cormorant Garamond",serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:300;font-style:italic;color:var(--text2);margin-bottom:2rem;animation:fadeUp 0.5s 0.14s ease both;letter-spacing:0.01em;}
+.hero-divider{width:60px;height:1px;background:var(--accent);margin-bottom:2rem;opacity:0.5;animation:fadeUp 0.5s 0.18s ease both;}
+.hero-sub{font-size:1.05rem;color:var(--text2);max-width:580px;margin-bottom:2.5rem;font-weight:300;line-height:1.85;animation:fadeUp 0.5s 0.22s ease both;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:3rem;animation:fadeUp 0.5s 0.28s ease both;}
+.tag{padding:0.32rem 0.9rem;background:var(--card);border:1px solid var(--border);border-radius:6px;font-size:0.77rem;color:var(--text2);font-family:"DM Mono",monospace;transition:all 0.15s;}
+.tag:hover{border-color:rgba(110,231,183,0.3);color:var(--accent);}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp 0.5s 0.34s ease both;}
+.btn-primary{padding:0.85rem 2rem;background:var(--accent);color:#0a0a0f;border:none;border-radius:8px;font-family:"DM Sans",sans-serif;font-weight:500;font-size:0.9rem;cursor:pointer;text-decoration:none;transition:all 0.2s;letter-spacing:0.01em;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 35px rgba(110,231,183,0.25);}
+.btn-ghost{padding:0.85rem 2rem;background:transparent;color:var(--text);border:1px solid var(--border);border-radius:8px;font-family:"DM Sans",sans-serif;font-weight:500;font-size:0.9rem;cursor:pointer;text-decoration:none;transition:all 0.2s;}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+.hero-stats{display:flex;gap:3.5rem;margin-top:4rem;padding-top:2.5rem;border-top:1px solid var(--border);animation:fadeUp 0.5s 0.4s ease both;}
+.stat-num{font-family:"Cormorant Garamond",serif;font-size:2.4rem;font-weight:700;color:var(--accent);line-height:1;}
+.stat-label{font-size:0.73rem;color:var(--text3);margin-top:0.25rem;letter-spacing:0.04em;text-transform:uppercase;}
+
+/* SECTION COMMONS */
+.section-wrap{max-width:1100px;margin:0 auto;padding:7rem 5rem;}
+.section-label{font-family:"DM Mono",monospace;font-size:0.72rem;color:var(--accent);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.6rem;}
+.section-title{font-family:"Cormorant Garamond",serif;font-size:clamp(2.2rem,4vw,3rem);font-weight:600;letter-spacing:-0.01em;margin-bottom:3.5rem;line-height:1.1;color:var(--text);}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:start;}
+.about-text p{color:var(--text2);margin-bottom:1.2rem;font-weight:300;font-size:1rem;line-height:1.85;}
+.about-text p strong{color:var(--text);font-weight:500;}
+.about-text .hi{color:var(--accent);}
+.about-cards{display:flex;flex-direction:column;gap:0.8rem;}
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:1.05rem 1.25rem;display:flex;align-items:center;gap:1rem;transition:border-color 0.2s;}
+.info-card:hover{border-color:rgba(110,231,183,0.28);}
+.info-icon{width:36px;height:36px;background:rgba(110,231,183,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.info-card-label{font-size:0.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;}
+.info-card-value{font-size:0.87rem;color:var(--text);font-weight:500;margin-top:0.1rem;}
+
+/* SKILLS */
+.skills-section{background:var(--bg2);}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:1.25rem;}
+.skill-group{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.6rem;transition:all 0.2s;}
+.skill-group:hover{border-color:rgba(110,231,183,0.18);background:rgba(255,255,255,0.05);}
+.skill-group-title{font-size:0.76rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.1rem;}
+.skill-pills{display:flex;flex-wrap:wrap;gap:0.45rem;}
+.skill-pill{padding:0.28rem 0.72rem;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;font-size:0.77rem;color:var(--text2);font-family:"DM Mono",monospace;transition:all 0.15s;}
+.skill-pill:hover{background:rgba(110,231,183,0.08);border-color:rgba(110,231,183,0.28);color:var(--accent);}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem;}
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all 0.25s;position:relative;overflow:hidden;}
+.project-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity 0.2s;}
+.project-card:hover{border-color:rgba(110,231,183,0.18);transform:translateY(-5px);}
+.project-card:hover::before{opacity:1;}
+.project-card.featured{grid-column:1/-1;}
+.project-card.featured::before{opacity:1;}
+.project-badge{display:inline-flex;align-items:center;gap:0.4rem;padding:0.24rem 0.72rem;border-radius:100px;font-size:0.69rem;font-family:"DM Mono",monospace;margin-bottom:1rem;}
+.badge-ieee{background:rgba(129,140,248,0.12);border:1px solid rgba(129,140,248,0.28);color:var(--accent2);}
+.badge-live{background:rgba(110,231,183,0.12);border:1px solid rgba(110,231,183,0.28);color:var(--accent);}
+.project-title{font-family:"Cormorant Garamond",serif;font-size:1.45rem;font-weight:600;margin-bottom:0.7rem;color:var(--text);}
+.project-desc{color:var(--text2);font-size:0.9rem;margin-bottom:1.4rem;line-height:1.7;font-weight:300;}
+.project-tech{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.4rem;}
+.project-links{display:flex;gap:0.75rem;}
+.proj-link{padding:0.44rem 1rem;border-radius:7px;font-size:0.8rem;font-weight:500;text-decoration:none;transition:all 0.15s;}
+.proj-link-primary{background:var(--accent);color:#0a0a0f;}
+.proj-link-primary:hover{box-shadow:0 6px 25px rgba(110,231,183,0.28);}
+.proj-link-ghost{border:1px solid var(--border);color:var(--text2);}
+.proj-link-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+/* RESEARCH */
+.research-card{background:linear-gradient(135deg,rgba(129,140,248,0.06),rgba(110,231,183,0.03));border:1px solid rgba(129,140,248,0.16);border-radius:20px;padding:3rem;position:relative;overflow:hidden;}
+.research-card::after{content:"";position:absolute;top:-60px;right:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(129,140,248,0.08),transparent 70%);border-radius:50%;pointer-events:none;}
+.research-title{font-family:"Cormorant Garamond",serif;font-size:1.5rem;font-weight:600;color:var(--text);margin-bottom:0.7rem;line-height:1.3;}
+.research-conf{font-size:0.82rem;color:var(--accent2);font-family:"DM Mono",monospace;margin-bottom:1.1rem;}
+.research-abstract{color:var(--text2);font-size:0.9rem;font-weight:300;max-width:720px;line-height:1.8;margin-bottom:1.5rem;}
+.research-doi{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1.1rem;background:rgba(129,140,248,0.1);border:1px solid rgba(129,140,248,0.25);border-radius:8px;color:var(--accent2);text-decoration:none;font-family:"DM Mono",monospace;font-size:0.79rem;transition:all 0.2s;}
+.research-doi:hover{background:rgba(129,140,248,0.18);}
+
+/* CERTS */
+.certs-section{background:var(--bg2);}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1rem;}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.4rem;transition:all 0.2s;position:relative;overflow:hidden;}
+.cert-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);opacity:0;transition:opacity 0.2s;border-radius:3px 0 0 3px;}
+.cert-card:hover{border-color:rgba(110,231,183,0.2);transform:translateY(-2px);}
+.cert-card:hover::before{opacity:1;}
+.cert-org{font-size:0.69rem;font-family:"DM Mono",monospace;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.45rem;}
+.cert-name{font-family:"Cormorant Garamond",serif;font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:0.35rem;line-height:1.3;}
+.cert-date{font-size:0.74rem;color:var(--text3);}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.contact-text{color:var(--text2);font-weight:300;font-size:1.05rem;margin-bottom:2rem;line-height:1.8;}
+.contact-links{display:flex;flex-direction:column;gap:0.75rem;}
+.contact-link{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;transition:all 0.2s;}
+.contact-link:hover{border-color:rgba(110,231,183,0.28);transform:translateX(5px);}
+.contact-link-icon{width:36px;height:36px;background:rgba(110,231,183,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.contact-link-text{flex:1;}
+.contact-link-label{font-size:0.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;}
+.contact-link-value{font-size:0.87rem;color:var(--text);font-weight:500;margin-top:0.1rem;}
+.contact-link-arrow{color:var(--text3);font-size:0.9rem;transition:transform 0.2s;}
+.contact-link:hover .contact-link-arrow{transform:translateX(4px);color:var(--accent);}
+.contact-aside{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;}
+.contact-aside p{color:var(--text2);font-size:0.9rem;margin-bottom:1rem;font-weight:300;line-height:1.75;}
+.contact-aside p strong{color:var(--text);font-weight:500;}
+.otw-box{display:flex;align-items:center;gap:0.8rem;padding:1rem 1.25rem;background:rgba(110,231,183,0.06);border:1px solid rgba(110,231,183,0.16);border-radius:10px;margin-top:1.5rem;}
+.otw-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite;flex-shrink:0;}
+.otw-text{font-size:0.84rem;color:var(--accent);font-weight:500;}
+.otw-sub{font-size:0.71rem;color:var(--text3);margin-top:0.15rem;}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.2rem 5rem;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
+.footer-logo{font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--accent);font-size:1.2rem;}
+.footer-text{font-size:0.78rem;color:var(--text3);}
+.footer-links{display:flex;gap:1.75rem;}
+.footer-links a{color:var(--text3);text-decoration:none;font-size:0.78rem;transition:color 0.2s;}
+.footer-links a:hover{color:var(--accent);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(26px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+.fade-up:nth-child(2){transition-delay:0.1s;}
+.fade-up:nth-child(3){transition-delay:0.2s;}
+
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:3px;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hero{padding:6.5rem 1.5rem 4rem;}
+  .section-wrap{padding:5rem 1.5rem;}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:3rem;}
+  .hero-stats{gap:2rem;flex-wrap:wrap;}
+  footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Shreya Garg</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge"><span class="badge-dot"></span>Open to work &middot; Remote &amp; On-site</div>
+  <h1 class="hero-name">Shreya <em>Garg</em></h1>
+  <p class="hero-role">Developer &amp; Researcher</p>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">CS graduate building at the intersection of web development, data analytics, and machine learning. IEEE published researcher &mdash; open to opportunities worldwide.</p>
+  <div class="hero-tags">
+    <span class="tag">Python</span><span class="tag">React.js</span><span class="tag">Flask</span>
+    <span class="tag">TensorFlow</span><span class="tag">Power BI</span><span class="tag">SQL</span>
+    <span class="tag">Deep Learning</span><span class="tag">Data Analytics</span>
+  </div>
+  <div class="hero-btns">
+    <a href="#projects" class="btn-primary">View Projects &rarr;</a>
+    <a href="#contact" class="btn-ghost">Get In Touch</a>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-num">1</div><div class="stat-label">IEEE Publication</div></div>
+    <div><div class="stat-num">6+</div><div class="stat-label">Certifications</div></div>
+    <div><div class="stat-num">2+</div><div class="stat-label">Projects Deployed</div></div>
+    <div><div class="stat-num">3</div><div class="stat-label">Tech Domains</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-wrap">
+    <div class="section-label">01 &mdash; About</div>
+    <h2 class="section-title">A bit about me</h2>
+    <div class="about-grid fade-up">
+      <div class="about-text">
+        <p>I&apos;m <strong>Shreya Garg</strong>, a CS graduate from <strong>AKGEC Ghaziabad</strong> (B.Tech, June 2026). I build full-stack web apps, derive insights from data, and train deep learning models that solve real-world problems.</p>
+        <p>My standout work is <strong>AgriRakshak</strong> &mdash; a crop disease detection system using CNN + Vision Transformer, <span class="hi">published at IEEE ICICAT 2025</span>. Certified by Deloitte, IBM SkillsBuild, and Infosys in data analytics and Python.</p>
+        <p>Previously interned at <strong>CodSoft</strong> as a Web Developer building and deploying responsive React dashboards. Also presented at <strong>IEEE AKGEC 2024</strong> and completed the <strong>IIT Bombay E-Cell</strong> Entrepreneurship Bootcamp.</p>
+      </div>
+      <div class="about-cards">
+        <div class="info-card"><div class="info-icon">&#127979;</div><div><div class="info-card-label">Education</div><div class="info-card-value">B.Tech CS (Hons) &mdash; AKGEC Ghaziabad &middot; 2026</div></div></div>
+        <div class="info-card"><div class="info-icon">&#128205;</div><div><div class="info-card-label">Location</div><div class="info-card-value">Ghaziabad &middot; Remote &amp; On-site (Delhi NCR)</div></div></div>
+        <div class="info-card"><div class="info-icon">&#128188;</div><div><div class="info-card-label">Experience</div><div class="info-card-value">Web Developer Intern &mdash; CodSoft (2025)</div></div></div>
+        <div class="info-card"><div class="info-icon">&#128300;</div><div><div class="info-card-label">Research</div><div class="info-card-value">IEEE ICICAT 2025 &mdash; Published Paper</div></div></div>
+        <div class="info-card"><div class="info-icon">&#127942;</div><div><div class="info-card-label">Achievements</div><div class="info-card-value">IIT Bombay E-Cell &middot; IEEE Poster &middot; Anveshana Semi-Finalist</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <div class="section-wrap">
+    <div class="section-label">02 &mdash; Skills</div>
+    <h2 class="section-title">What I work with</h2>
+    <div class="skills-grid fade-up">
+      <div class="skill-group"><div class="skill-group-title">&#9889; Languages</div><div class="skill-pills"><span class="skill-pill">Python</span><span class="skill-pill">JavaScript (ES6+)</span><span class="skill-pill">SQL</span><span class="skill-pill">HTML5</span><span class="skill-pill">CSS3</span></div></div>
+      <div class="skill-group"><div class="skill-group-title">&#127758; Web &amp; Frameworks</div><div class="skill-pills"><span class="skill-pill">React.js</span><span class="skill-pill">Flask</span><span class="skill-pill">REST APIs</span><span class="skill-pill">Responsive Design</span><span class="skill-pill">Git &amp; GitHub</span></div></div>
+      <div class="skill-group"><div class="skill-group-title">&#129504; ML &amp; Deep Learning</div><div class="skill-pills"><span class="skill-pill">TensorFlow</span><span class="skill-pill">Keras</span><span class="skill-pill">CNN</span><span class="skill-pill">Vision Transformer (ViT)</span><span class="skill-pill">Scikit-learn</span><span class="skill-pill">NumPy</span><span class="skill-pill">Pandas</span><span class="skill-pill">Matplotlib</span><span class="skill-pill">Seaborn</span><span class="skill-pill">Feature Extraction (ExG/ExR)</span></div></div>
+      <div class="skill-group"><div class="skill-group-title">&#128202; Analytics &amp; BI</div><div class="skill-pills"><span class="skill-pill">Power BI</span><span class="skill-pill">Tableau</span><span class="skill-pill">Excel / Google Sheets</span><span class="skill-pill">Data Visualization</span><span class="skill-pill">Data Storytelling</span><span class="skill-pill">Forensic Technology</span></div></div>
+      <div class="skill-group"><div class="skill-group-title">&#9925; Cloud &amp; DevOps</div><div class="skill-pills"><span class="skill-pill">Google Cloud Platform</span><span class="skill-pill">Render</span><span class="skill-pill">GitHub Pages</span><span class="skill-pill">Jupyter Notebook</span><span class="skill-pill">VS Code</span></div></div>
+      <div class="skill-group"><div class="skill-group-title">&#128452; Databases</div><div class="skill-pills"><span class="skill-pill">MySQL</span><span class="skill-pill">SQLite</span><span class="skill-pill">MongoDB</span><span class="skill-pill">SQL Queries</span></div></div>
+      <div class="skill-group"><div class="skill-group-title">&#129309; Soft Skills</div><div class="skill-pills"><span class="skill-pill">Team Collaboration</span><span class="skill-pill">Problem Solving</span><span class="skill-pill">Effective Communication</span><span class="skill-pill">Research &amp; Documentation</span><span class="skill-pill">Agile / Version Control</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-wrap">
+    <div class="section-label">03 &mdash; Projects</div>
+    <h2 class="section-title">Things I&apos;ve built</h2>
+    <div class="projects-grid fade-up">
+      <div class="project-card featured">
+        <span class="project-badge badge-ieee">&#11088; IEEE Published Research</span>
+        <h3 class="project-title">AgriRakshak &mdash; Crop Disease Prediction System</h3>
+        <p class="project-desc">A deep learning system that detects and classifies plant diseases from leaf images using a hybrid CNN + Vision Transformer (ViT) architecture. Applied advanced spectral feature extraction (ExG &amp; ExR indices) achieving superior accuracy over baseline models. Research published at IEEE ICICAT 2025.</p>
+        <div class="project-tech"><span class="skill-pill">Python</span><span class="skill-pill">TensorFlow</span><span class="skill-pill">Keras</span><span class="skill-pill">CNN</span><span class="skill-pill">Vision Transformer</span><span class="skill-pill">NumPy</span><span class="skill-pill">Matplotlib</span></div>
+        <div class="project-links">
+          <a href="https://doi.org/10.1109/ICICAT68430.2025.11414544" target="_blank" class="proj-link proj-link-primary">Read Paper &rarr;</a>
+          <a href="https://github.com/Shreyagc24/AgriRakshak" target="_blank" class="proj-link proj-link-ghost">View on GitHub</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <span class="project-badge badge-live">&#128994; Live</span>
+        <h3 class="project-title">To-Do List Web App</h3>
+        <p class="project-desc">Full-stack task management application with a Python Flask backend and responsive HTML/CSS/JavaScript frontend. Features real-time CRUD operations, deployed and live on Render.</p>
+        <div class="project-tech"><span class="skill-pill">Python</span><span class="skill-pill">Flask</span><span class="skill-pill">HTML5</span><span class="skill-pill">CSS3</span><span class="skill-pill">JavaScript</span><span class="skill-pill">SQLite</span></div>
+        <div class="project-links">
+          <a href="https://todo-flask-app-vf8v.onrender.com/" target="_blank" class="proj-link proj-link-primary">Live Demo &rarr;</a>
+          <a href="https://github.com/Shreyagc24/todo-flask-app" target="_blank" class="proj-link proj-link-ghost">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-wrap">
+    <div class="section-label">04 &mdash; Research</div>
+    <h2 class="section-title">Published work</h2>
+    <div class="research-card fade-up">
+      <span class="project-badge badge-ieee" style="margin-bottom:1.25rem">&#128196; IEEE Conference Paper &middot; 2025</span>
+      <h3 class="research-title">AgriRakshak: A Crop Disease Prediction Model Leveraging Deep Learning Techniques</h3>
+      <div class="research-conf">2025 3rd International Conference on IoT Communication and Automation Technology (ICICAT)</div>
+      <p class="research-abstract">A hybrid deep learning model combining Convolutional Neural Networks (CNN) with Vision Transformer (ViT) architecture for automated plant disease classification from leaf images. Advanced spectral feature extraction techniques (ExG and ExR indices) were applied to improve detection accuracy and model interpretability over baseline approaches.</p>
+      <a href="https://doi.org/10.1109/ICICAT68430.2025.11414544" target="_blank" class="research-doi">&#128279; DOI: 10.1109/ICICAT68430.2025.11414544</a>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="certs-section">
+  <div class="section-wrap">
+    <div class="section-label">05 &mdash; Certifications</div>
+    <h2 class="section-title">Credentials</h2>
+    <div class="certs-grid fade-up">
+      <div class="cert-card"><div class="cert-org">Deloitte &middot; Forage</div><div class="cert-name">Data Analytics Job Simulation</div><div class="cert-date">July 2025 &middot; Data Analysis &amp; Forensic Technology</div></div>
+      <div class="cert-card"><div class="cert-org">IBM SkillsBuild &middot; CSRBOX</div><div class="cert-name">Decoding Data: Insights &amp; Impact through Analytics</div><div class="cert-date">Jul&ndash;Aug 2025 &middot; Project Based Learning</div></div>
+      <div class="cert-card"><div class="cert-org">Infosys Springboard</div><div class="cert-name">Data Science with Python</div><div class="cert-date">May 2025 &middot; Pandas, NumPy, ML Fundamentals</div></div>
+      <div class="cert-card"><div class="cert-org">Infosys Springboard</div><div class="cert-name">Python Programming &mdash; 04</div><div class="cert-date">May 2025 &middot; Advanced Python &amp; OOP</div></div>
+      <div class="cert-card"><div class="cert-org">E-Cell &middot; IIT Bombay</div><div class="cert-name">Illuminate Entrepreneurship Bootcamp</div><div class="cert-date">December 2024 &middot; IMS Ghaziabad Campus</div></div>
+      <div class="cert-card"><div class="cert-org">CodSoft</div><div class="cert-name">Web Development Virtual Internship</div><div class="cert-date">Jun&ndash;Jul 2025 &middot; ID: 8a91eaf</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="section-label">06 &mdash; Contact</div>
+    <h2 class="section-title">Let&apos;s connect</h2>
+    <div class="contact-grid fade-up">
+      <div>
+        <p class="contact-text">I&apos;m actively looking for Data Analyst, Web Developer, and ML Engineer roles &mdash; remote or on-site. If you&apos;re hiring or want to collaborate on something meaningful, reach out!</p>
+        <div class="contact-links">
+          <a href="mailto:shreyanrg2405@gmail.com" class="contact-link"><div class="contact-link-icon">&#9993;&#65039;</div><div class="contact-link-text"><div class="contact-link-label">Email</div><div class="contact-link-value">shreyanrg2405@gmail.com</div></div><div class="contact-link-arrow">&rarr;</div></a>
+          <a href="https://linkedin.com/in/shreya-garg-a3b83b29b" target="_blank" class="contact-link"><div class="contact-link-icon">&#128188;</div><div class="contact-link-text"><div class="contact-link-label">LinkedIn</div><div class="contact-link-value">linkedin.com/in/shreya-garg-a3b83b29b</div></div><div class="contact-link-arrow">&rarr;</div></a>
+          <a href="https://github.com/Shreyagc24" target="_blank" class="contact-link"><div class="contact-link-icon">&#128025;</div><div class="contact-link-text"><div class="contact-link-label">GitHub</div><div class="contact-link-value">github.com/Shreyagc24</div></div><div class="contact-link-arrow">&rarr;</div></a>
+        </div>
+      </div>
+      <div class="contact-aside">
+        <p>CS graduate (June 2026) &middot; Available for remote &amp; on-site roles worldwide.</p>
+        <p>Open to <strong>full-time, contract, and freelance</strong> work. Available to join immediately.</p>
+        <div class="otw-box"><div class="otw-dot"></div><div><div class="otw-text">Open to Work</div><div class="otw-sub">Data Analyst &middot; Web Developer &middot; ML Engineer</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Shreya Garg</div>
+  <div class="footer-text">&copy; 2026 &middot; Shreya Garg</div>
+  <div class="footer-links">
+    <a href="https://github.com/Shreyagc24" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/shreya-garg-a3b83b29b" target="_blank">LinkedIn</a>
+    <a href="mailto:shreyanrg2405@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+}, { threshold: 0.1 });
+document.querySelectorAll(".fade-up").forEach(el => obs.observe(el));
+
+const secs = document.querySelectorAll("section[id]");
+const links = document.querySelectorAll(".nav-links a[href^=\'#\']");
+window.addEventListener("scroll", () => {
+  let cur = "";
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 110) cur = s.id; });
+  links.forEach(a => { a.style.color = a.getAttribute("href") === "#" + cur ? "var(--accent)" : ""; });
+});
+</script>
+</body>
+</html>
